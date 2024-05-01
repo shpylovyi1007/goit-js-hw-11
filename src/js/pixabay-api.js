@@ -1,6 +1,9 @@
+const form = document.querySelector('form');
+const input = form.elements.search;
+
 const searchParams = new URLSearchParams({
     key: '43654443-0aa2ac279d0400a8e119738dd',
-    q: 'ad',
+    q: input.value,
     image_type: 'photo',
     orientation: 'horizontal',
     safesearch: 'true'

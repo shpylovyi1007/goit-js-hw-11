@@ -1,8 +1,9 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
+const gallery = document.querySelector('.gallery');
 
 const addImages = images => {
-    const galleryList = images.map(image => {
+    const galleryList = images.map(image =>
         `< li class="gallery-item" >
             <a class="gallery-link" href=${image.largeImageURL}>
                 <img
@@ -14,15 +15,13 @@ const addImages = images => {
                     <b>Comments</b>: ${image.comments}
                     <b>Downloads</b>: ${image.downloads}
                 /></a></li >`
-    }).join('');
-    div.insertAdjacentHTML('beforeend', galleryList);
+    ).join('');
+    gallery.insertAdjacentHTML('beforeend', galleryList);
 
     let lightbox = new SimpleLightbox('.gallery a', {
         captionsData: 'alt',
         captionDelay: 250
     });
-
-    lightbox.refresh();
 };
 
 export default addImages;
