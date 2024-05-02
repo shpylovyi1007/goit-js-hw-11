@@ -3,6 +3,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 const gallery = document.querySelector('.gallery');
 
 const addImages = images => {
+    gallery.innerHTML = '';
     const galleryList = images.map(image =>
         `< li class="gallery-item" >
             <a class="gallery-link" href=${image.largeImageURL}>
@@ -10,11 +11,14 @@ const addImages = images => {
                     class="gallery-image"
                     url=${image.webformatURL}
                     alt=${image.tags}
-                    <b>Likes</b>: ${image.likes}
-                    <b>Views</b>: ${image.views}
-                    <b>Comments</b>: ${image.comments}
-                    <b>Downloads</b>: ${image.downloads}
-                /></a></li >`
+                /></a>
+                 <div>
+                <p>Likes: ${image.likes}</p>
+                <p>Views: ${image.views}</p>
+                <p>Comments: ${image.comments}</p>
+                <p>Downloads: ${image.downloads}</p>
+            </div>
+                </li >`
     ).join('');
     gallery.insertAdjacentHTML('beforeend', galleryList);
 

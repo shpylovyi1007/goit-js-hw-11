@@ -1,16 +1,16 @@
 const form = document.querySelector('form');
-const input = form.elements.search;
+const input = form.elements.search.value.trim();
 
 const searchParams = new URLSearchParams({
     key: '43654443-0aa2ac279d0400a8e119738dd',
-    q: input.value,
+    q: input,
     image_type: 'photo',
     orientation: 'horizontal',
     safesearch: 'true'
 });
-
-const userGallery = () => {
-    return fetch(`https://pixabay.com/api/images?${searchParams}`)
+const url = `https://pixabay.com/api/images?${searchParams}`;
+const userGallery = input => {
+    return fetch(url)
         .then(response => {
             if (!response.ok) {
                 throw new Error(response.status);
