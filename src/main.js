@@ -11,7 +11,7 @@ form.addEventListener('submit', (event) => {
         return;
     }
     userGallery(userSearch)
-        .then(images => addImages(images))
+        .then(listImage => addImages(listImage))
         .catch(error => iziToast.show({
             message: 'Sorry, there are no images matching your search query. Please try again!'
         })

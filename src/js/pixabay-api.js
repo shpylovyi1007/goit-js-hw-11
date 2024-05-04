@@ -15,8 +15,8 @@ const userGallery = userSearch => {
             return response.json();
         })
         .then(images => {
-            console.log(images);
-            return images.hits;
+            const listImage = images.hits;
+            return listImage;
         })
         .catch(error => {
             throw error;

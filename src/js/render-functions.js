@@ -2,9 +2,9 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 const gallery = document.querySelector('.gallery');
 
-const addImages = images => {
+const addImages = listImage => {
     gallery.innerHTML = '';
-    const galleryList = images.map(image =>
+    const galleryList = listImage.map(image =>
         `<li class="gallery-item">
             <a class="gallery-link" href=${image.largeImageURL}>
                 <img
