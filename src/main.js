@@ -6,7 +6,7 @@ const form = document.querySelector('form');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    const userSearch = form.elements.search.value.trim();
+    const userSearch = event.target.elements.search.value.trim();
     userGallery(userSearch)
         .then(listImage => addImages(listImage))
         .catch(error => iziToast.show({

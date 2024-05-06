@@ -1,5 +1,4 @@
 const loader = document.querySelector('.loader');
-loader.style.display = 'none';
 
 const userGallery = userSearch => {
     const searchParams = new URLSearchParams({
