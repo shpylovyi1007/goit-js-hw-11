@@ -2,10 +2,14 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 const gallery = document.querySelector('.gallery');
 
-const addImages = listImage => {
-    gallery.innerHTML = '';
-    const galleryList = listImage.map(image =>
-        `<li class="gallery-item">
+let lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250
+});
+
+const addImages = response => {
+    const galleryList = response.hits.map(image => {
+        return `<li class="gallery-item">
             <a class="gallery-link" href=${image.largeImageURL}>
                 <img
                     src=${image.webformatURL}
@@ -19,14 +23,8 @@ const addImages = listImage => {
                 <p>Downloads ${image.downloads}</p>
             </div>
                 </li>`
-    ).join('');
+    }).join('');
     gallery.insertAdjacentHTML('beforeend', galleryList);
-
-    let lightbox = new SimpleLightbox('.gallery a', {
-        captionsData: 'alt',
-        captionDelay: 250
-    });
     lightbox.refresh();
 };
-
 export default addImages;
