@@ -3,6 +3,7 @@
   height: 48px;
   display: none;
   position: relative;
+  left: 50%;
 }
 .loader::after,
 .loader::before {
